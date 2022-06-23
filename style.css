@@ -1,0 +1,19 @@
+#button_container{
+    display: flex;
+    flex-direction: row;
+    background-color: blueviolet;
+}
+
+#number_container {
+    display: flex;
+    flex-direction: column;
+    }
+
+
+#nonzero_container {
+    display: grid;
+    grid-gap: 0em;
+    grid-template-columns: repeat(3, 1fr);
+    height: 400px;/*calc(100vh - 200px);*/
+    width: 400px;/*calc(100vh - 200px); */
+    }
