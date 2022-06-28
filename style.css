@@ -1,23 +1,36 @@
 .button_container{
-    /* display: flex;
+    display: flex;
     flex-direction: row;
-    background-color: blueviolet;
-    justify-content: space-between; */
+    justify-content: flex-start;
 }
 
 .number_container {
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     }
 
 
-.nonzero_container {
+.nonzero {
+    /*
     display: flex;
     flex-wrap: wrap;
-    /* display: grid;
+    */
+    display: grid;
     grid-gap: 0em;
     grid-template-columns: repeat(3, 1fr);
-    height: 400px;
-    width: 400px;
-    background-color: blueviolet; */
+    height: 100px;
+    width: 100px;
+    background-color: blueviolet;
     }
+
+
+    .zero{
+        display: grid;
+        grid-gap: 0em;
+    }
+
+.operator_container{
+    display: flex;
+    flex-direction: column;
+}
