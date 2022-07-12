@@ -19,8 +19,8 @@
     display: grid;
     grid-gap: 0em;
     grid-template-columns: repeat(3, 1fr);
-    height: 100px;
-    width: 100px;
+    height: 125px;
+    width: 125px;
     background-color: blueviolet;
     }
 
@@ -28,6 +28,7 @@
     .zero{
         display: grid;
         grid-gap: 0em;
+        height: auto;
     }
 
 .operator_container{
