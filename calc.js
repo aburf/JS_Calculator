@@ -1,6 +1,6 @@
 
 calcArr = []
-
+operators = ['+','-','*','/']
 //identify all buttons
   var allButtons = document.getElementsByTagName('button');
   console.log(allButtons);
@@ -11,9 +11,9 @@ calcArr = []
 function operate(){
   for(i = 0; i < allButtons.length;i++) {
     allButtons[i].addEventListener('click', function (event) {
-      console.log(event.target.innerHTML);
+      //console.log(event.target.innerHTML);
       calcArr.push(event.target.innerHTML);
-      console.log(calcArr);
+      //console.log(calcArr);
       let calcDisplay = document.getElementById('output')
       calcDisplay.textContent = calcArr.join('');
       })
