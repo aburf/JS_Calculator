@@ -34,7 +34,7 @@ function operate(){
         operator = "";
         calcDisplay.textContent = "0";
       }
-      //must start with valid number input to initiate calc
+      //must start with valid number input to initiate calc on init Array
       else{
           if(calcArr1.length === 0){
             if(isNumber(clickInput)){
@@ -42,12 +42,26 @@ function operate(){
               calcDisplay.textContent = calcArr1.join('');
             }
             else {
-              calcDisplay.textContent = "Start with number";
+              calcDisplay.textContent = "Start with a number";
             }
           }
           //if number already started, then continue adding numbers to it,
-          //or break to operate if operator selected
-          else if (calcArr1.length > 0){
+          //or break to operate if operator newly added
+          else if (calcArr1.length > 0 && operator === ""){
+            if(isNumber(clickInput)){
+              calcArr1.push(clickInput);
+              calcDisplay.textContent = calcArr1.join('');
+            }
+            else {
+              operator = clickInput;
+              calcDisplay.textContent = calcArr1.join('')+operator;
+            }
+          }
+          //////////////////////////////
+          //////////////////////////////
+          //////////////////////////////
+          /*
+          else if (calcArr1.length > 0 && operator === ""){
             if(isNumber(clickInput)){
               calcArr1.push(clickInput);
               calcDisplay.textContent = calcArr1.join('');
@@ -57,6 +71,8 @@ function operate(){
               console.log(operator);
             }
           }
+          */
+
     }
 
       console.log(isNumber(clickInput));
