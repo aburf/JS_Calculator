@@ -1,6 +1,8 @@
 
-calcArr = []
-operators = ['+','-','*','/']
+let calcArr1 = [];
+let calcArr2 = [];
+let operator = "";
+//let operators = ['+','-','*','/'];
 //identify all buttons
   var allButtons = document.getElementsByTagName('button');
   console.log(allButtons);
@@ -22,12 +24,47 @@ function operate(){
       
 
       let clickInput = event.target.innerHTML;
-      console.log(typeof clickInput);
-
-      calcArr.push(event.target.innerHTML);
-      //console.log(calcArr);
+      
       let calcDisplay = document.getElementById('output')
-      calcDisplay.textContent = calcArr.join('');
+
+      //AC take precedent over everything
+      if(clickInput === "AC"){
+        calcArr1 = [];
+        calcArr2 = [];
+        operator = "";
+        calcDisplay.textContent = "0";
+      }
+      //must start with valid number input to initiate calc
+      else{
+          if(calcArr1.length === 0){
+            if(isNumber(clickInput)){
+              calcArr1.push(clickInput);
+              calcDisplay.textContent = calcArr1.join('');
+            }
+            else {
+              calcDisplay.textContent = "Start with number";
+            }
+          }
+          //if number already started, then continue adding numbers to it,
+          //or break to operate if operator selected
+          else if (calcArr1.length > 0){
+            if(isNumber(clickInput)){
+              calcArr1.push(clickInput);
+              calcDisplay.textContent = calcArr1.join('');
+            }
+            else {
+              operator = clickInput;
+              console.log(operator);
+            }
+          }
+    }
+
+      console.log(isNumber(clickInput));
+
+      
+      //console.log(calcArr1);
+      
+      //calcDisplay.textContent = calcArr1.join('');
 
       })
       
@@ -44,8 +81,8 @@ function operate(){
   allButtons.forEach(btn => {
     btn.addEventListener('click', function clickEvent(event) {
       console.log(event.target.innerHTML);
-      calcArr.push(event.target.innerHTML);
-      console.log(calcArr)
+      calcArr1.push(event.target.innerHTML);
+      console.log(calcArr1)
     });
   });
   
