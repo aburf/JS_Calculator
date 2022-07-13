@@ -60,18 +60,19 @@ function operate(){
           //////////////////////////////
           //////////////////////////////
           //////////////////////////////
-          /*
-          else if (calcArr1.length > 0 && operator === ""){
+          
+          else if (calcArr1.length > 0 && operator != ""){
             if(isNumber(clickInput)){
-              calcArr1.push(clickInput);
-              calcDisplay.textContent = calcArr1.join('');
+              calcArr2.push(clickInput);
+              calcDisplay.textContent = calcArr2.join('');
             }
+            //allow user to change their operator if no new number added
             else {
               operator = clickInput;
-              console.log(operator);
+              calcDisplay.textContent = calcArr1.join('')+operator;
             }
           }
-          */
+          
 
     }
 
