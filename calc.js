@@ -105,18 +105,20 @@ function operate(){
                   tempVal = parseFloat(calcArr1.join('')) / parseFloat(calcArr2.join(''));
                   break;
               }
-              
 
               calcDisplay.textContent = tempVal;
               calcArr1 = [tempVal];
               calcArr2 = [];
-              operator = "";
+              operator = clickInput;
             }
             } 
           } ///ends the else statement after the "AC" if statement
     console.log(isNumber(clickInput));
 
-    })
+    console.log("CalcArr1: "+calcArr1)
+    console.log("calcArr2: "+calcArr2)
+    console.log("operator: "+operator)
+    }) ///end event log function
       
   }
 
