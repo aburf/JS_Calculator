@@ -2,7 +2,7 @@
 let calcArr1 = [];
 let calcArr2 = [];
 let operator = "";
-//let operators = ['+','-','*','/'];
+let operators = ['+','-','*','/','='];
 //identify all buttons
   var allButtons = document.getElementsByTagName('button');
   console.log(allButtons);
@@ -40,7 +40,7 @@ function operate(){
       ////////////////////////////////////////////////////////
       else{
           if(calcArr1.length === 0){
-            if(isNumber(clickInput)){
+            if(isNumber(clickInput) || clickInput ==="."){
               calcArr1.push(clickInput);
               calcDisplay.textContent = calcArr1.join('');
             }
@@ -54,7 +54,7 @@ function operate(){
           //or break to operate if operator newly added
           ////////////////////////////////////////////////////////
           else if (calcArr1.length > 0 && operator === ""){
-            if(isNumber(clickInput)){
+            if(isNumber(clickInput) || clickInput ==="."){
               calcArr1.push(clickInput);
               calcDisplay.textContent = calcArr1.join('');
             }
@@ -68,7 +68,7 @@ function operate(){
           ////when calcArr2 has not yet been established we can either start it or change operators
           ////////////////////////////////////////////////////////
           else if (calcArr1.length > 0 && operator != "" && calcArr2.length === 0 ){
-            if(isNumber(clickInput)){
+            if(isNumber(clickInput) || clickInput ==="."){
               calcArr2.push(clickInput);
               calcDisplay.textContent = calcArr2.join('');
             }
@@ -82,61 +82,46 @@ function operate(){
           ////////////////////////////////////////////////////////
           ////when calcArr2 exists we can add to it or calculate
           ////////////////////////////////////////////////////////
-          /*
-          else if (calcArr1.length > 0 && operator != "" && calcArr2.length === 0 ){
-            if(isNumber(clickInput)){
+          else if (calcArr1.length > 0 && operator != "" && calcArr2.length > 0 ){
+            if(isNumber(clickInput) || clickInput ==="."){
               calcArr2.push(clickInput);
               calcDisplay.textContent = calcArr2.join('');
             }
-            //allow user to change their operator if no new number added
-            else {
+            //if Array2 already has a value and the use inputs another operator, we calculate with current operator
+            else {//(operators.includes()){
+              let tempVal = 0;
               switch (operator){
-                case 0:
-                  operator ===
+                ///['+','-','*','/',"="]
+                case "+":
+                  tempVal = parseFloat(calcArr1.join('')) + parseFloat(calcArr2.join(''));
+                  break;
+                case "-":
+                  tempVal = parseFloat(calcArr1.join('')) - parseFloat(calcArr2.join(''));
+                  break;
+                case "*":
+                  tempVal = parseFloat(calcArr1.join('')) * parseFloat(calcArr2.join(''));
+                  break;
+                case "/":
+                  tempVal = parseFloat(calcArr1.join('')) / parseFloat(calcArr2.join(''));
+                  break;
               }
+              
+
+              calcDisplay.textContent = tempVal;
+              calcArr1 = [tempVal];
+              calcArr2 = [];
+              operator = "";
             }
-          }
-          */
+            } 
+          } ///ends the else statement after the "AC" if statement
+    console.log(isNumber(clickInput));
 
-          
-
-    }
-
-      console.log(isNumber(clickInput));
-
-      
-      //console.log(calcArr1);
-      
-      //calcDisplay.textContent = calcArr1.join('');
-
-      })
+    })
       
   }
 
 }
 
 operate()
-
-/*
-function operate(){
-  var allButtons = document.getElementsByTagName('button');
-
-  allButtons.forEach(btn => {
-    btn.addEventListener('click', function clickEvent(event) {
-      console.log(event.target.innerHTML);
-      calcArr1.push(event.target.innerHTML);
-      console.log(calcArr1)
-    });
-  });
-  
-};
-
-
-operate();
-
-*/
-
-
-
 
 
